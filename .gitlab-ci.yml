@@ -6,7 +6,7 @@ stages:
 ejecutar_tests:
   stage: test
   script:
-    - [cite_start]./mvnw clean test [cite: 2]
+    - [cite_start]./mvnw clean install [cite: 2]
   artifacts:
     [cite_start]name: "reporte-jacoco-${CI_COMMIT_REF_SLUG}" [cite: 2]
     [cite_start]when: always [cite: 2]
