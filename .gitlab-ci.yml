@@ -1,0 +1,16 @@
+[cite_start]image: eclipse-temurin:17-jdk-alpine [cite: 1]
+
+stages:
+  - test
+
+ejecutar_tests:
+  stage: test
+  script:
+    - ./mvnw clean test
+  artifacts:
+    name: "reporte-jacoco-${CI_COMMIT_REF_SLUG}"
+    when: always
+    paths:
+      - target/site/jacoco/      
+      - build/reports/jacoco/    
+    [cite_start]expire_in: 1 week [cite: 2] # <-- Corregido: Ahora está bien alineado
