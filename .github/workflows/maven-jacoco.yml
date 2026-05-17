@@ -17,12 +17,12 @@ jobs:
     - name: Configurar JDK
       uses: actions/setup-java@v4
       with:
-        java-version: '17' # Cambia a tu versión de Java
+        java-version: '21' # Cambia a tu versión de Java
         distribution: 'temurin'
         cache: 'maven' # Usa 'gradle' si corresponde
 
     - name: Ejecutar Tests y JaCoCo (Maven)
-      run: mvn clean test
+      run: ./mvn clean test
       # Si usas Gradle, cambia por: run: ./gradlew test jacocoTestReport
 
     - name: Subir reporte de JaCoCo como artefacto
