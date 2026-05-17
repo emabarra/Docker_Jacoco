@@ -1,4 +1,4 @@
-[cite_start]image: eclipse-temurin:17-jdk-alpine [cite: 1]
+[cite_start]image: eclipse-temurin:21-jdk-alpine [cite: 1]
 
 stages:
   - test
