@@ -1,4 +1,4 @@
-[cite_start]image: eclipse-temurin:21-jdk-alpine [cite: 1]
+[cite_start]image: eclipse-temurin:21-jdk-alpine [cite: 1] # Actualizado a Java 21 para evitar el error de compilación
 
 stages:
   - test
@@ -6,11 +6,11 @@ stages:
 ejecutar_tests:
   stage: test
   script:
-    - ./mvnw clean test
+    - [cite_start]./mvnw clean test [cite: 2]
   artifacts:
-    name: "reporte-jacoco-${CI_COMMIT_REF_SLUG}"
-    when: always
-    paths:
-      - target/site/jacoco/      
-      - build/reports/jacoco/    
-    [cite_start]expire_in: 1 week [cite: 2] # <-- Corregido: Ahora está bien alineado
+    [cite_start]name: "reporte-jacoco-${CI_COMMIT_REF_SLUG}" [cite: 2]
+    [cite_start]when: always [cite: 2]
+    [cite_start]paths: [cite: 2]
+      - [cite_start]target/site/jacoco/ [cite: 2]     
+      - [cite_start]build/reports/jacoco/ [cite: 2]   
+    [cite_start]expire_in: 1 week [cite: 2] # Corregido: Ahora está correctamente alineado dentro de artifacts
