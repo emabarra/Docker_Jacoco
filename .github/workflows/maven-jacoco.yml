@@ -21,9 +21,12 @@ jobs:
         distribution: 'temurin'
         cache: 'maven'
 
+    # Añadimos este paso por seguridad: asegura que el wrapper tenga permisos para ejecutarse
+    - name: Dar permisos de ejecución a mvnw
+      run: chmod +x ./mvnw
+
+    # Eliminamos el bloque 'env' que rompía el JAVA_HOME
     - name: Ejecutar Tests y JaCoCo (Maven)
-      env:
-        JAVA_HOME: $JAVA_HOME_21_X64
       run: ./mvnw clean install
 
     - name: Subir reporte de JaCoCo como artefacto
