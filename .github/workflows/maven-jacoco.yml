@@ -23,7 +23,7 @@ jobs:
 
     - name: Ejecutar Tests y JaCoCo (Maven)
       env:
-        JAVA_HOME: ${{ env.JAVA_HOME_21_X64 }}
+        JAVA_HOME: $JAVA_HOME_21_X64
       run: ./mvnw clean install
 
     - name: Subir reporte de JaCoCo como artefacto
